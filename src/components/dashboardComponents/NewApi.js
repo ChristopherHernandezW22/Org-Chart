@@ -2,21 +2,34 @@ import React, {useState, useEffect } from 'react';
 import axiosWithAuth from '../utilities/AxiosWithAuth';
 import NewApiList from './NewApiList';
 
+const initialQuote = {
+    author: "",
+    text: ""
+  };
 
-const AuthorQuote = () => {
-const [aqList, setAQList] = useState([]);
+  const AuthorQuote = () => {
+  const [aqList, setAQList] = useState([]);
 
-useEffect(() => {
-    axiosWithAuth().get('https://lambda-practice-db.herokuapp.com/api/post')
-    .then(res => {setAQList(res.data.posts);
-})
-.catch(err => console.log(err.response));
+  useEffect(() => {
+      getAQ();
+  }, []);
 
-},[]);
+const getAQ = () => {
+    axiosWithAuth()
+    .get('https://lambda-practice-db.herokuapp.com/api/post')
+    .then(res => {
+        console.log('get request', res)
+        setAQList(res.data.posts);
+    })
+    .catch(err => console.log(err.response));
+}
 
 const addAQ = event => {
     axiosWithAuth().post('https://lambda-practice-db.herokuapp.com/api/post', event)
-    .then(res => setAQList(res.data))
+    .then(() => {
+        console.log('success post')
+        getAQ();
+    })
     .catch(err => console.log(err.response));
 }
 
@@ -41,6 +54,7 @@ const editAQ = id => {
     // console.log(id);
     axiosWithAuth().put(`https://lambda-practice-db.herokuapp.com/api/post/${id}`)
         .then(res => {
+            
         axiosWithAuth().get('https://lambda-practice-db.herokuapp.com/api/post')
         .then(res => {
             setAQList(res.data.posts);
