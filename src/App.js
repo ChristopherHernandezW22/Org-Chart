@@ -8,7 +8,8 @@ import SignupForm from './components/onboarding/signupForm';
 import AuthorQuote from './components/dashboardComponents/NewApi';
 
 import Dashboard from './components/dashboard';
-import addEmployeeForm from './components/dashboardComponents/addEmployeeForm'
+import addEmployeeForm from './components/dashboardComponents/addEmployeeForm';
+import EditPost from './components/dashboardComponents/EditPost.js';
 
 const PrivateRoute = ({component: Component, ...rest}) => {
   return <Route {...rest} render={props => {
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/' component={landing}/>
         <Route path='/login' component={LoginForm} />
         <Route path='/signup' component={SignupForm} />
+        <Route path='/edit/:id' component={EditPost} />
 
         <PrivateRoute path='/dashboard' component={Dashboard}/>
         {/* <Route path='/addemployee' component={addEmployeeForm}/> */}

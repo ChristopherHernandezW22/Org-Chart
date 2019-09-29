@@ -1,6 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import axiosWithAuth from '../utilities/AxiosWithAuth';
 import NewApiList from './NewApiList';
+import { Link } from 'react-router-dom';
+
 
 const initialQuote = {
     author: "",
@@ -52,17 +54,11 @@ const deleteAQ = id => {
 
 const editAQ = id => {
     // console.log(id);
-    axiosWithAuth().put(`https://lambda-practice-db.herokuapp.com/api/post/${id}`)
-        .then(res => {
-            
-        axiosWithAuth().get('https://lambda-practice-db.herokuapp.com/api/post')
-        .then(res => {
-            setAQList(res.data.posts);
-            console.log('updating data');
-          })
-          .catch(err => console.log(err.response))
-      
-              })
+    axiosWithAuth()
+    .put(`https://lambda-practice-db.herokuapp.com/api/post/${id}`)
+    .then(res => {
+        console.log('updated', res);
+        })
       .catch(err => console.log(err.response));
 }
 
@@ -76,7 +72,7 @@ return(
         <h3>{quote.author}</h3>
         <p>{quote.text}</p>
         <button onClick= {()=>deleteAQ(quote.id)}>Delete</button>
-        <button onClick= {()=>editAQ(quote.id)}>Edit</button>
+        <Link to={`edit/${quote.id}`}>Edit</Link>
         </div>
     );
 })}
