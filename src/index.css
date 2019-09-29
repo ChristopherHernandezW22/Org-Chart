@@ -1,0 +1,207 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* varibles */
+
+/* landing page css */
+body{
+  background: #545e75;
+  
+}
+.landingDiv{
+  margin: 15% auto;
+  width: 70vw;
+  padding: 30px 45px;
+  border: #D3DDEA 1px solid;
+  border-radius: 15px;
+}
+
+.landingTitle{
+  color: #D3DDEA;
+}
+
+.landingText{
+  color: #D3DDEA;
+  font-size: 1.2rem;
+}
+.landingText span{
+  color: #FF990A;
+}
+.landingButtons{
+  margin: 35px auto; 
+}
+.aBtn:hover {
+  color: #7795f8;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.aBtn{
+  padding: 12px 33px;
+  background: #FF990A;
+  color: #D3DDEA;
+  border: #FF990A;  
+  border-radius: 15px;
+  font-size: 1.2rem; 
+  margin: 5px 30px; 
+}
+
+/*  add employee Form */
+
+.addEmployeeDiv{
+  margin: 15% auto;;
+  padding: 10% 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: #D3DDEA 1px solid;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.stack{
+  width: 32%;
+  margin: 1% auto;
+}
+select{
+  display: inline-block;
+  padding: 8px;
+  border: #D3DDEA 1px solid;
+  border-radius: 15px;
+}
+
+/* login form */
+
+.formPage{
+ width: 80%;
+ margin: 0 auto;
+}
+
+.formDiv{
+  margin: 15% auto;;
+  padding: 10% 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: #D3DDEA 1px solid;
+  border-radius: 15px;
+  width: 100%;
+}
+
+input{
+  display: inline-block;
+  padding: 10px 15px;
+  border: #D3DDEA 1px solid;
+  border-radius: 15px;
+  margin: 2% 5%;
+  max-width: 50%;
+}
+
+label{
+  display: inline-block;
+  color: #D3DDEA;
+  text-align: center;
+  margin: 1% 5%;
+}
+
+a{
+  text-decoration: none;
+  color: #D3DDEA;
+}
+
+small{
+  color: #D3DDEA;
+}
+
+/* dashboard header */
+
+.headerDiv{
+  width: 100%;
+  background: #D3DDEA;
+  padding: 10px 0;
+}
+
+.headerItems{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 3% auto;
+}
+
+.headerButtons{
+  padding: 10px 15px;
+  border-radius: 15px; 
+  background: #545e75;
+  border: 1px solid #545e75;
+  color: aliceblue;
+  font-size: .8rem;
+}
+.headerButtons:hover {
+  color: #7795f8;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.logoutBtn{
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  background: #545e75;
+  border: 1px solid #545e75;
+  color: aliceblue;
+}
+
+/* cards and cardContainer */
+
+/* h4 */
+.employeeTitle{
+  font-size: 1.4rem;
+  border-bottom: 1px solid #CFD4D5;
+  margin: 2% auto;
+  width: 20%;
+  color: #CFD4D5;
+}
+h2{
+  color: #545e75;
+}
+.employeeCard{
+  width: 30%;
+  border: #CFD4D5 1px solid;
+  margin-top: 4%;
+  background: #CFD4D5;
+  border-radius: 15px;
+}
+.employeeCard:hover {
+  color: #545e75;
+  background: #D3DDEA;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+img{
+  padding-top: 8px;
+  border-radius: 50%;
+  width: 92%;
+}
+.cardContainer{
+  width: 60%;
+  margin: 2% auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.searchLabel{
+  width: 80%;
+}
