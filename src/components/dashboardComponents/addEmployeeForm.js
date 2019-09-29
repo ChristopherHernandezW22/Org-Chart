@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios';
+import axiosWithAuth from '../utilities/AxiosWithAuth';
 
 const AddEmployeeForm = ({ errors, touched, handleSubmit }) => (
     <div className="formPage">
@@ -78,13 +79,12 @@ const FormikEmployeeForm = withFormik({
 
     handleSubmit(values, props) {
         console.log(props);
-        axios.post("https://lambda-practice-db.herokuapp.com/api/post", values)
+        axiosWithAuth().post("https://lambda-practice-db.herokuapp.com/api/post", values)
         .then(res => {
           console.log('add new thing here', res.data);
-          
-            // localStorage.setItem('token', res.data.token)
+
             console.log(props.props.history);
-            props.props.history.push("/dashboard");
+            // props.props.history.push("/dashboard");
         // setStatus(res.data);
         })
         .catch(err => console.log(err.response));
