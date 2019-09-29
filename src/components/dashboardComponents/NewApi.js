@@ -37,6 +37,21 @@ const deleteAQ = id => {
       .catch(err => console.log(err.response));
 }
 
+const editAQ = id => {
+    // console.log(id);
+    axiosWithAuth().put(`https://lambda-practice-db.herokuapp.com/api/post/${id}`)
+        .then(res => {
+        axiosWithAuth().get('https://lambda-practice-db.herokuapp.com/api/post')
+        .then(res => {
+            setAQList(res.data.posts);
+            console.log('updating data');
+          })
+          .catch(err => console.log(err.response))
+      
+              })
+      .catch(err => console.log(err.response));
+}
+
 return(
 <div>
 
@@ -47,6 +62,7 @@ return(
         <h3>{quote.author}</h3>
         <p>{quote.text}</p>
         <button onClick= {()=>deleteAQ(quote.id)}>Delete</button>
+        <button onClick= {()=>editAQ(quote.id)}>Edit</button>
         </div>
     );
 })}
