@@ -1,13 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'; 
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'; 
 import landing from './components/landing';
 import './App.css';
 
 import LoginForm from './components/onboarding/loginForm';
-import SignupForm from './components/onboarding/signupForm'
+import SignupForm from './components/onboarding/signupForm';
+import AuthorQuote from './components/dashboardComponents/NewApi';
 
 import Dashboard from './components/dashboard';
 import addEmployeeForm from './components/dashboardComponents/addEmployeeForm'
+
+const PrivateRoute = ({component: Component, ...rest}) => {
+  return <Route {...rest} render={props => {
+    if (localStorage.getItem('token')) {
+      return <Component {...props} />;
+    } else {
+      return <Redirect to="/login" />;
+    }
+  }} />;
+};
 
 function App() {
   return (
@@ -17,8 +28,11 @@ function App() {
         <Route path='/login' component={LoginForm} />
         <Route path='/signup' component={SignupForm} />
 
-        <Route path='/dashboard' component={Dashboard}/>
-        <Route path='/addemployee' component={addEmployeeForm}/>
+        <PrivateRoute path='/dashboard' component={Dashboard}/>
+        {/* <Route path='/addemployee' component={addEmployeeForm}/> */}
+        
+        <Route path='/addemployee' component={AuthorQuote}/>
+
        </Router>
     </div>
   );
