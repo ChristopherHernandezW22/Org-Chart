@@ -28,12 +28,12 @@ function App() {
         <Route exact path='/' component={landing}/>
         <Route path='/login' component={LoginForm} />
         <Route path='/signup' component={SignupForm} />
-        <Route path='/edit/:id' component={EditPost} />
+        <PrivateRoute path='/edit/:id' component={EditPost} />
 
         <PrivateRoute path='/dashboard' component={Dashboard}/>
         {/* <Route path='/addemployee' component={addEmployeeForm}/> */}
         
-        <Route path='/addemployee' component={AuthorQuote}/>
+        <PrivateRoute path='/addemployee' component={AuthorQuote}/>
 
        </Router>
     </div>

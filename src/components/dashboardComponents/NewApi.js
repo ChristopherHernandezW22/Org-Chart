@@ -52,15 +52,15 @@ const deleteAQ = id => {
       .catch(err => console.log(err.response));
 }
 
-const editAQ = id => {
-    // console.log(id);
-    axiosWithAuth()
-    .put(`https://lambda-practice-db.herokuapp.com/api/post/${id}`)
-    .then(res => {
-        console.log('updated', res);
-        })
-      .catch(err => console.log(err.response));
-}
+// const editAQ = id => {
+//     // console.log(id);
+//     axiosWithAuth()
+//     .put(`https://lambda-practice-db.herokuapp.com/api/post/${id}`)
+//     .then(res => {
+//         console.log('updated', res);
+//         })
+//       .catch(err => console.log(err.response));
+// }
 
 return(
 <div>
@@ -82,5 +82,3 @@ return(
 )};
 
 export default AuthorQuote;
-
-
